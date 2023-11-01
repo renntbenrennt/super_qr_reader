@@ -12,7 +12,7 @@ class FlutterQrReader {
       const MethodChannel('me.hetian.flutter_qr_reader');
 
   static Future<String?> imgScan(File file) async {
-    if (file?.existsSync() == false) {
+    if (file.existsSync() == false) {
       return null;
     }
     try {

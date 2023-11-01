@@ -156,7 +156,7 @@ class QrcodeReaderViewState extends State<QrcodeReaderView>
     stopScan();
     PermissionStatus status = await Permission.camera.request();
     if (status == PermissionStatus.granted) {
-      var image = await ImagePicker().getImage(source: ImageSource.gallery);
+      var image = await ImagePicker().pickImage(source: ImageSource.gallery);
       if (image == null) {
         startScan();
         return;
@@ -184,7 +184,7 @@ class QrcodeReaderViewState extends State<QrcodeReaderView>
   );
 
   bool hasCenteredText(String text) {
-    return text != null && text.isNotEmpty;
+    return text.isNotEmpty;
   }
 
   @override
