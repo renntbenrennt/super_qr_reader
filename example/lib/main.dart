@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
-  HomePage({Key key}) : super(key: key);
+  HomePage({Key? key}) : super(key: key);
 
   @override
   _HomePageState createState() => new _HomePageState();
@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            RaisedButton(
+            ElevatedButton(
               onPressed: () async {
                 String results = await Navigator.push(
                   context,
@@ -53,11 +53,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                 );
 
-                if (results != null) {
-                  setState(() {
-                    result = results;
-                  });
-                }
+                setState(() {
+                  result = results;
+                });
               },
               child: Text("扫码/tap to scan"),
             ),
